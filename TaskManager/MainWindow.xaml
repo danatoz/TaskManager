@@ -5,8 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Менеджер задач" Height="450" Width="600" >
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"></SolidColorBrush>
+    </Window.Background>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--Top menu-->
+        <StackPanel>
+            <Menu Height="20" VerticalAlignment="Top">
+                <MenuItem Header="Файл">
+                    <MenuItem Header="Сохранить"/>
+                    <Separator />
+                    <MenuItem x:Name="miExit" Header="Выход" Click="miExit_Click"/>
+                </MenuItem>
+                <MenuItem Header="Правка"></MenuItem>
+                <MenuItem Header="О программе"></MenuItem>
+            </Menu>
+        </StackPanel>
+        <!--Top menu-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
+            <StackPanel Grid.Column="0">
+                <Button Margin="20,20,20,0">
+                    <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                        <Image Source="Resources/icon/icon_sun.png" Height="24">
+                        </Image>
+                        <Label>Мой день</Label>
+                    </StackPanel>
+                </Button>
+                <Button Margin="20,20,20,0">
+                    <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                        <Image Source="Resources/icon/icon_star.png" Height="24">
+                        </Image>
+                        <Label>Важно</Label>
+                    </StackPanel>
+                </Button>
+                <Button Margin="20,20,20,-2">
+                    <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                        <Image Source="Resources/icon/icon_calendar.png" Height="24">
+                        </Image>
+                        <Label>Запланировано</Label>
+                    </StackPanel>
+                </Button>
+                <Button Margin="20,20,20,0">
+                    <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                        <Image Source="Resources/icon/icon_completed.png" Height="24">
+                        </Image>
+                        <Label>Завершенные</Label>
+                    </StackPanel>
+                </Button>
+                <Button Margin="20">
+                    <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                        <Image Source="Resources/icon/icon_task.png" Height="24">
+                        </Image>
+                        <Label>Задачи</Label>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
