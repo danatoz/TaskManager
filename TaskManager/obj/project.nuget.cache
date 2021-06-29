@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "vEnq9+dbiWMuPxkkOh/oP6rvucdVE8kAFusZCliD5x4jUVawoGozB+TEXTTJOH6nQEFBcKwYKJ3pvBasN21WKA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dante\\Documents\\TaskManager\\TaskManager\\TaskManager.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dante\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.14\\microsoft.netcore.app.host.win-x64.3.1.14.nupkg.sha512"
+  ],
+  "logs": []
+}
