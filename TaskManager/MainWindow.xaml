@@ -70,6 +70,47 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="20" Grid.Row="0">
+                    <ListBox Name="lbAllTask" HorizontalContentAlignment="Left" ItemsSource="{Binding}">
+                        <!--<ListBoxItem Margin="2" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="0">
+                                <CheckBox Margin="0,0,5,0" VerticalAlignment="Center"></CheckBox>
+                                <Label>Привет мир!</Label>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <Label>Задачи</Label>
+                                <Image Margin="5,0,5,0" Source="/Resources/icon/icon_calendar.png" Width="16" Height="16"></Image>
+                                <Label>сегодня</Label>
+                                <Image Margin="5,0,5,0" Source="/Resources/icon/icon_repeat.png" Width="16" Height="16"></Image>
+                            </StackPanel>
+                        </Grid>
+                    </ListBoxItem>-->
+                    </ListBox>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <Button Margin="0,0,20,20">
+                        <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                            <Image Source="Resources/icon/icon_delete.png" Height="24"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="20,0,0,20">
+                        <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                            <Image Source="Resources/icon/icon_add.png" Height="24"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
         </Grid>
+
     </Grid>
 </Window>
