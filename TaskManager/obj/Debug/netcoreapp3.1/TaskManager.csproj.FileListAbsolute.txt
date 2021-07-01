@@ -4,7 +4,6 @@ C:\Users\Dante\Documents\TaskManager\TaskManager\bin\Debug\netcoreapp3.1\TaskMan
 C:\Users\Dante\Documents\TaskManager\TaskManager\bin\Debug\netcoreapp3.1\TaskManager.runtimeconfig.dev.json
 C:\Users\Dante\Documents\TaskManager\TaskManager\bin\Debug\netcoreapp3.1\TaskManager.dll
 C:\Users\Dante\Documents\TaskManager\TaskManager\bin\Debug\netcoreapp3.1\TaskManager.pdb
-C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.csprojAssemblyReference.cache
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager_MarkupCompile.cache
@@ -17,3 +16,4 @@ C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskMan
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.dll
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.pdb
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.genruntimeconfig.cache
+C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.csproj.AssemblyReference.cache

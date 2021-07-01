@@ -7,7 +7,7 @@ namespace TaskManager.Model
     public class Task
     {
         private string dateTime;
-
+        public int Id { get; set; }
         public bool TaskDone { get; set; }
         public string HeaderTask { get; set; }
         public string DateOfCreation

@@ -34,10 +34,9 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0">
-                <Button Margin="20,20,20,0">
-                    <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
-                        <Image Source="Resources/icon/icon_sun.png" Height="24">
-                        </Image>
+                <Button Margin="20,20,20,0" HorizontalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Resources/icon/icon_sun.png" Height="24"/>
                         <Label>Мой день</Label>
                     </StackPanel>
                 </Button>
@@ -72,40 +71,42 @@
             </StackPanel>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <StackPanel Margin="20" Grid.Row="0">
-                    <ListBox Name="lbAllTask" HorizontalContentAlignment="Left" ItemsSource="{Binding}">
-                        <!--<ListBoxItem Margin="2" >
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="0">
-                                <CheckBox Margin="0,0,5,0" VerticalAlignment="Center"></CheckBox>
-                                <Label>Привет мир!</Label>
-                            </StackPanel>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <Label>Задачи</Label>
-                                <Image Margin="5,0,5,0" Source="/Resources/icon/icon_calendar.png" Width="16" Height="16"></Image>
-                                <Label>сегодня</Label>
-                                <Image Margin="5,0,5,0" Source="/Resources/icon/icon_repeat.png" Width="16" Height="16"></Image>
-                            </StackPanel>
-                        </Grid>
-                    </ListBoxItem>-->
+                <StackPanel Margin="20" Grid.Row="0" MinHeight="320">
+                    <ListBox x:Name="lbAllTask" HorizontalContentAlignment="Left" MinHeight="340" SelectionChanged="lbAllTask_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate >
+                                <Grid Margin="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="0">
+                                        <CheckBox x:Name="cbDone" IsChecked="{Binding Path=TaskDone, Mode=TwoWay}" Margin="0,0,5,0" VerticalAlignment="Center"></CheckBox>
+                                        <TextBlock Text="{Binding Path=HeaderTask}"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                        <Label>Задачи</Label>
+                                        <Image Margin="5,0,5,0" Source="/Resources/icon/icon_calendar.png" Width="16" Height="16"></Image>
+                                        <Label>сегодня</Label>
+                                        <Image Margin="5,0,5,0" Source="/Resources/icon/icon_repeat.png" Width="16" Height="16"></Image>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
                     </ListBox>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                    <Button Margin="0,0,20,20">
+                    <Button x:Name="btnRemoveTask" Margin="0,0,20,20" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Arrow" Click="btnRemoveTask_Click">
                         <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
-                            <Image Source="Resources/icon/icon_delete.png" Height="24"/>
+                            <Image Source="Resources/icon/icon_delete.png" Height="32"/>
                         </StackPanel>
                     </Button>
-                    <Button Margin="20,0,0,20">
+                    <Button x:Name="btnAddTask" Margin="20,0,0,20" Background="{x:Null}" BorderBrush="{x:Null}">
                         <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
-                            <Image Source="Resources/icon/icon_add.png" Height="24"/>
+                            <Image Source="Resources/icon/icon_add.png" Height="32"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>
