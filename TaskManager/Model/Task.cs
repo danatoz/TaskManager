@@ -17,5 +17,7 @@ namespace TaskManager.Model
         }
         public string DeadLine { get; set; }
         public bool RepeatTask { get; set; }
+
+        //public List<Task> Completed { get; set; }
     }
 }

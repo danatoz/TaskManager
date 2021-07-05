@@ -8,17 +8,23 @@
 
   <ItemGroup>
     <None Remove="Resources\icon\icon_add.png" />
+    <None Remove="Resources\icon\icon_add_to_favorites.png" />
     <None Remove="Resources\icon\icon_calendar.png" />
     <None Remove="Resources\icon\icon_completed.png" />
     <None Remove="Resources\icon\icon_delete.png" />
+    <None Remove="Resources\icon\icon_edit.png" />
     <None Remove="Resources\icon\icon_repeat.png" />
     <None Remove="Resources\icon\icon_star.png" />
     <None Remove="Resources\icon\icon_sun.png" />
     <None Remove="Resources\icon\icon_task.png" />
+    <None Remove="Resources\icon\icon_tasklist.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\icon\icon_add.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icon\icon_add_to_favorites.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\icon\icon_calendar.png">
@@ -28,6 +34,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\icon\icon_delete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icon\icon_edit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\icon\icon_repeat.png">
@@ -40,6 +49,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\icon\icon_task.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icon\icon_tasklist.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

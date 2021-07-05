@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskManager"
         mc:Ignorable="d"
-        Title="Менеджер задач" Height="450" Width="600" >
+        Title="Менеджер задач" Height="500" Width="600" Icon="/Resources/icon/icon_tasklist.png" >
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"></SolidColorBrush>
     </Window.Background>
@@ -35,12 +35,28 @@
 
             <StackPanel Grid.Column="0">
                 <Button Margin="20,20,20,0" HorizontalAlignment="Stretch">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Background>
+                        <SolidColorBrush Color="#FF8FECB1" Opacity="0.7"/>
+                    </Button.Background>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/icon/icon_sun.png" Height="24"/>
                         <Label>Мой день</Label>
                     </StackPanel>
                 </Button>
                 <Button Margin="20,20,20,0">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Background>
+                        <SolidColorBrush Color="#FF8FECB1" Opacity="0.7"/>
+                    </Button.Background>
                     <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
                         <Image Source="Resources/icon/icon_star.png" Height="24">
                         </Image>
@@ -48,13 +64,29 @@
                     </StackPanel>
                 </Button>
                 <Button Margin="20,20,20,-2">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Background>
+                        <SolidColorBrush Color="#FF8FECB1" Opacity="0.7"/>
+                    </Button.Background>
                     <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
                         <Image Source="Resources/icon/icon_calendar.png" Height="24">
                         </Image>
                         <Label>Запланировано</Label>
                     </StackPanel>
                 </Button>
-                <Button Margin="20,20,20,0">
+                <Button x:Name="btnTaskDone" Margin="20,20,20,0" Click="btnTaskDone_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Background>
+                        <SolidColorBrush Color="#FF8FECB1" Opacity="0.7"/>
+                    </Button.Background>
                     <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
                         <Image Source="Resources/icon/icon_completed.png" Height="24">
                         </Image>
@@ -62,6 +94,14 @@
                     </StackPanel>
                 </Button>
                 <Button Margin="20">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.Background>
+                        <SolidColorBrush Color="#FF8FECB1" Opacity="0.7"/>
+                    </Button.Background>
                     <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
                         <Image Source="Resources/icon/icon_task.png" Height="24">
                         </Image>
@@ -74,8 +114,8 @@
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <StackPanel Margin="20" Grid.Row="0" MinHeight="320">
-                    <ListBox x:Name="lbAllTask" HorizontalContentAlignment="Left" MinHeight="340" SelectionChanged="lbAllTask_SelectionChanged">
+                <StackPanel Grid.Row="0" MinHeight="320">
+                    <ListBox x:Name="lbAllTask"  Margin="20" HorizontalContentAlignment="Left" MinHeight="360" SelectionChanged="lbAllTask_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Auto">
                         <ListBox.ItemTemplate>
                             <DataTemplate >
                                 <Grid Margin="2">
@@ -83,15 +123,26 @@
                                         <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="0">
-                                        <CheckBox x:Name="cbDone" IsChecked="{Binding Path=TaskDone, Mode=TwoWay}" Margin="0,0,5,0" VerticalAlignment="Center"></CheckBox>
+                                        <CheckBox x:Name="cbDone" IsChecked="{Binding Path=TaskDone, Mode=TwoWay}" Margin="0,0,5,0" VerticalAlignment="Center" Checked="cbDone_Checked" Unchecked="cbDone_Unchecked"></CheckBox>
                                         <TextBlock Text="{Binding Path=HeaderTask}"></TextBlock>
                                     </StackPanel>
-                                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                    <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
                                         <Label>Задачи</Label>
                                         <Image Margin="5,0,5,0" Source="/Resources/icon/icon_calendar.png" Width="16" Height="16"></Image>
                                         <Label>сегодня</Label>
                                         <Image Margin="5,0,5,0" Source="/Resources/icon/icon_repeat.png" Width="16" Height="16"></Image>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1">
+                                        <Button Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" BorderBrush="White">
+                                            <StackPanel>
+                                                <Image Source="Resources/icon/icon_add_to_favorites.png" Width="24" Height="24"></Image>
+                                            </StackPanel>
+                                        </Button>
                                     </StackPanel>
                                 </Grid>
                             </DataTemplate>
@@ -99,19 +150,38 @@
                     </ListBox>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                    <Button x:Name="btnRemoveTask" Margin="0,0,20,20" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Arrow" Click="btnRemoveTask_Click">
-                        <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
-                            <Image Source="Resources/icon/icon_delete.png" Height="32"/>
-                        </StackPanel>
-                    </Button>
-                    <Button x:Name="btnAddTask" Margin="20,0,0,20" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <Button x:Name="btnAddTask" Margin="0,0,0,20" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
                         <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
                             <Image Source="Resources/icon/icon_add.png" Height="32"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="btnEditTask" Margin="20,0,20,20" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Arrow">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                        <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                            <Image Source="Resources/icon/icon_edit.png" Height="32"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="btnRemoveTask" Margin="0,0,0,20" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Arrow" Click="btnRemoveTask_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                        <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                            <Image Source="Resources/icon/icon_delete.png" Height="32"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>
             </Grid>
         </Grid>
-
     </Grid>
 </Window>
