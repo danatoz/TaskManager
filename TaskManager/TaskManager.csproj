@@ -13,6 +13,7 @@
     <None Remove="Resources\icon\icon_completed.png" />
     <None Remove="Resources\icon\icon_delete.png" />
     <None Remove="Resources\icon\icon_edit.png" />
+    <None Remove="Resources\icon\icon_notification.png" />
     <None Remove="Resources\icon\icon_repeat.png" />
     <None Remove="Resources\icon\icon_star.png" />
     <None Remove="Resources\icon\icon_sun.png" />
@@ -37,6 +38,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\icon\icon_edit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\icon\icon_notification.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\icon\icon_repeat.png">
