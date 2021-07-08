@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TaskManager"
+        xmlns:local="clr-namespace:TaskManager" xmlns:model="clr-namespace:TaskManager.Model" xmlns:viewmodel="clr-namespace:TaskManager.ViewModel"
         mc:Ignorable="d"
-        Title="Менеджер задач" Height="500" Width="600" Icon="/Resources/icon/icon_tasklist.png" >
+        Title="Менеджер задач" Height="530" Width="620" Icon="/Resources/icon/icon_tasklist.png" >
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"></SolidColorBrush>
     </Window.Background>
@@ -20,7 +20,7 @@
                 <MenuItem Header="Файл">
                     <MenuItem Header="Сохранить"/>
                     <Separator />
-                    <MenuItem x:Name="miExit" Header="Выход" Click="miExit_Click"/>
+                    <MenuItem x:Name="miExit" Header="Выход" Click="MiExit_Click"/>
                 </MenuItem>
                 <MenuItem Header="Правка"></MenuItem>
                 <MenuItem Header="О программе"></MenuItem>
@@ -44,11 +44,11 @@
                         <SolidColorBrush Color="#FF8FECB1" Opacity="0.7"/>
                     </Button.Background>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="Resources/icon/icon_sun.png" Height="24"/>
+                        <Image Source="/Resources/icon/icon_sun.png" Height="24"/>
                         <Label>Мой день</Label>
                     </StackPanel>
                 </Button>
-                <Button Margin="20,20,20,0">
+                <Button x:Name="btnFavorite" Margin="20,20,20,0">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -58,12 +58,12 @@
                         <SolidColorBrush Color="#FF8FECB1" Opacity="0.7"/>
                     </Button.Background>
                     <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
-                        <Image Source="Resources/icon/icon_star.png" Height="24">
+                        <Image Source="/Resources/icon/icon_star.png" Height="24">
                         </Image>
                         <Label>Важно</Label>
                     </StackPanel>
                 </Button>
-                <Button Margin="20,20,20,-2">
+                <Button x:Name="btnPlaned" Margin="20,20,20,-2">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -73,12 +73,12 @@
                         <SolidColorBrush Color="#FF8FECB1" Opacity="0.7"/>
                     </Button.Background>
                     <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
-                        <Image Source="Resources/icon/icon_calendar.png" Height="24">
+                        <Image Source="/Resources/icon/icon_calendar.png" Height="24">
                         </Image>
                         <Label>Запланировано</Label>
                     </StackPanel>
                 </Button>
-                <Button x:Name="btnTaskDone" Margin="20,20,20,0" Click="btnTaskDone_Click">
+                <Button x:Name="btnTaskDone" Margin="20,20,20,0">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -88,7 +88,7 @@
                         <SolidColorBrush Color="#FF8FECB1" Opacity="0.7"/>
                     </Button.Background>
                     <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
-                        <Image Source="Resources/icon/icon_completed.png" Height="24">
+                        <Image Source="/Resources/icon/icon_completed.png" Height="24">
                         </Image>
                         <Label>Завершенные</Label>
                     </StackPanel>
@@ -103,7 +103,7 @@
                         <SolidColorBrush Color="#FF8FECB1" Opacity="0.7"/>
                     </Button.Background>
                     <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
-                        <Image Source="Resources/icon/icon_task.png" Height="24">
+                        <Image Source="/Resources/icon/icon_task.png" Height="24">
                         </Image>
                         <Label>Задачи</Label>
                     </StackPanel>
@@ -115,9 +115,15 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" MinHeight="320">
-                    <ListBox x:Name="lbAllTask"  Margin="20" HorizontalContentAlignment="Left" MinHeight="360" SelectionChanged="lbAllTask_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListBox ItemsSource="{Binding Tasks}"
+                             SelectedItem="{Binding SelectedTask}"
+                             Margin="20,0,20,20"
+                             HorizontalContentAlignment="Left"
+                             MinHeight="360"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto"
+                             MinWidth="260">
                         <ListBox.ItemTemplate>
-                            <DataTemplate >
+                            <DataTemplate>
                                 <Grid Margin="2">
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
@@ -128,8 +134,8 @@
                                         <ColumnDefinition></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="0">
-                                        <CheckBox x:Name="cbDone" IsChecked="{Binding Path=TaskDone, Mode=TwoWay}" Margin="0,0,5,0" VerticalAlignment="Center" Checked="cbDone_Checked" Unchecked="cbDone_Unchecked"></CheckBox>
-                                        <TextBlock Text="{Binding Path=HeaderTask}"></TextBlock>
+                                        <CheckBox  CommandParameter="{Binding}" Margin="0,0,5,0" VerticalAlignment="Center"></CheckBox>
+                                        <TextBlock Text="{Binding Path=HeaderTask, Mode=TwoWay}"></TextBlock>
                                     </StackPanel>
                                     <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
                                         <Label>Задачи</Label>
@@ -140,7 +146,7 @@
                                     <StackPanel Grid.Column="1">
                                         <Button Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" BorderBrush="White">
                                             <StackPanel>
-                                                <Image Source="Resources/icon/icon_add_to_favorites.png" Width="24" Height="24"></Image>
+                                                <Image Source="/Resources/icon/icon_add_to_favorites.png" Width="24" Height="24"></Image>
                                             </StackPanel>
                                         </Button>
                                     </StackPanel>
@@ -149,37 +155,65 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </StackPanel>
-                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                    <Button x:Name="btnAddTask" Margin="0,0,0,20" Background="{x:Null}" BorderBrush="{x:Null}">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-                        </Button.Resources>
-                        <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
-                            <Image Source="Resources/icon/icon_add.png" Height="32"/>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" >
+                            <StackPanel Orientation="Horizontal" DataContext="{Binding SelectedTask}">
+                                <TextBox Text="{Binding HeaderTask, UpdateSourceTrigger=PropertyChanged}"  MinWidth="260" Height="24" Margin="20,5,20,5"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <DatePicker FirstDayOfWeek="Monday" SelectedDateFormat="Short" Height="24" Margin="0,0,5,5"></DatePicker>
+                                <Button Margin="5,0,0,5">
+                                    <Button.BorderBrush>
+                                        <SolidColorBrush Color="#FF707070" Opacity="0"/>
+                                    </Button.BorderBrush>
+                                    <Button.Background>
+                                        <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+                                    </Button.Background>
+                                    <StackPanel>
+                                        <Image Source="/Resources/icon/icon_notification.png" Width="24"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
                         </StackPanel>
-                    </Button>
-                    <Button x:Name="btnEditTask" Margin="20,0,20,20" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Arrow">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-                        </Button.Resources>
-                        <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
-                            <Image Source="Resources/icon/icon_edit.png" Height="32"/>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+                            <Button x:Name="btnAddTask" Command="{Binding AddCommand}" Margin="0,0,0,5" Background="{x:Null}" BorderBrush="{x:Null}">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                                <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                                    <Image Source="/Resources/icon/icon_add.png" Height="32"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="btnEditTask" Margin="20,0,20,5" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Arrow">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                                <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                                    <Image Source="/Resources/icon/icon_edit.png" Height="32"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedTask}" Margin="0,0,0,5" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Arrow">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                                <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                                    <Image Source="/Resources/icon/icon_delete.png" Height="32"/>
+                                </StackPanel>
+                            </Button>
                         </StackPanel>
-                    </Button>
-                    <Button x:Name="btnRemoveTask" Margin="0,0,0,20" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Arrow" Click="btnRemoveTask_Click">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-                        </Button.Resources>
-                        <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
-                            <Image Source="Resources/icon/icon_delete.png" Height="32"/>
-                        </StackPanel>
-                    </Button>
+
+                    </Grid>
                 </StackPanel>
             </Grid>
         </Grid>

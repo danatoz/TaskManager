@@ -4,11 +4,11 @@ C:\Users\Dante\Documents\TaskManager\TaskManager\bin\Debug\netcoreapp3.1\TaskMan
 C:\Users\Dante\Documents\TaskManager\TaskManager\bin\Debug\netcoreapp3.1\TaskManager.runtimeconfig.dev.json
 C:\Users\Dante\Documents\TaskManager\TaskManager\bin\Debug\netcoreapp3.1\TaskManager.dll
 C:\Users\Dante\Documents\TaskManager\TaskManager\bin\Debug\netcoreapp3.1\TaskManager.pdb
-C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\View\MainWindow.g.cs
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager_MarkupCompile.cache
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager_MarkupCompile.lref
-C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\View\MainWindow.baml
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.g.resources
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.AssemblyInfoInputs.cache
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.AssemblyInfo.cs
