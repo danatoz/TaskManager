@@ -10,7 +10,7 @@ using TaskManager.Model;
 
 namespace TaskManager.ViewModel
 {
-    class ApplicationViewModel : BaseNotifyProperty
+    class ApplicationViewModel : Base.ViewModel
     {
         private Model.Task _selectedTask;
         public ObservableCollection<Model.Task> Tasks { get; set; }
