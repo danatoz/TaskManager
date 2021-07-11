@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,12 +20,18 @@ using TaskManager.ViewModel;
 using Task = TaskManager.Model.Task;
 
 namespace TaskManager
+=======
+﻿using System.Windows;
+
+namespace TaskManager.View
+>>>>>>> branchname
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+<<<<<<< HEAD
         public MainWindow()
         {
             InitializeComponent();
@@ -37,5 +44,8 @@ namespace TaskManager
         {
             this.Close();
         }
+=======
+        public MainWindow() => InitializeComponent();
+>>>>>>> branchname
     }
 }

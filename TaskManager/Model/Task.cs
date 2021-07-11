@@ -5,7 +5,11 @@ using TaskManager.ViewModel;
 
 namespace TaskManager.Model
 {
+<<<<<<< HEAD
     public class Task : BaseNotifyProperty
+=======
+    public class Task : ViewModel.Base.ViewModel
+>>>>>>> branchname
     {
 
 
