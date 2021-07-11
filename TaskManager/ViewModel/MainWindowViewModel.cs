@@ -10,19 +10,17 @@ using TaskManager.Model;
 
 namespace TaskManager.ViewModel
 {
-    class ApplicationViewModel : Base.ViewModel
+    class MainWindowViewModel : Base.ViewModel
     {
         private Model.Task _selectedTask;
         public ObservableCollection<Model.Task> Tasks { get; set; }
         public ObservableCollection<Model.Task> TasksDone { get; set; }
         public ObservableCollection<Model.Task> TasksMyDay { get; set; }
 
-
+        #region Command
+        #region Add and remove command
         private RelayCommand _addCommand;
         private RelayCommand _removeCommand;
-
-        private RelayCommand _taskIsDone;
-        //private RelayCommand _taskIsDone;
 
         public RelayCommand AddCommand
         {
@@ -53,23 +51,36 @@ namespace TaskManager.ViewModel
             }
         }
 
-        public RelayCommand TaskIsDone
+        #endregion
+
+        #region Close App
+        public ICommand CloseApplicationCommand { get; set; }
+        private bool CanCloseApplicationCommandExecuted(object p) => true;
+
+        private void OnCloseApplicationCommandExecuted(object p)
         {
-            get
-            {
-                return _taskIsDone ?? (_taskIsDone = new RelayCommand(obj =>
-                {
-                    Model.Task task = obj as Task;
-                    if (task != null)
-                    {
-                        Tasks.Remove(task);
-                    }
-                }, (obj) => Tasks.Count > 0));
-            }
+            Application.Current.Shutdown();
         }
 
+        
+
+        #endregion
 
 
+        #endregion
+
+
+        public bool TaskIsDone
+        {
+            get => SelectedTask.TaskIsDone;
+            set
+            {
+                if(SelectedTask.TaskIsDone == value) return;
+                SelectedTask.TaskIsDone = value;
+                OnPropertyChanged("TaskIsDone");
+            }
+
+        }
 
         public Model.Task SelectedTask
         {
@@ -78,12 +89,18 @@ namespace TaskManager.ViewModel
             set
             {
                 _selectedTask = value;
+                
                 OnPropertyChanged("SelectedTask");
             }
         }
 
-        public ApplicationViewModel()
+        public MainWindowViewModel()
         {
+            #region Commands
+            CloseApplicationCommand = new RelayCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecuted);
+            
+
+            #endregion
             TasksDone = new ObservableCollection<Model.Task>();
             TasksMyDay = new ObservableCollection<Model.Task>();
             Tasks = new ObservableCollection<Task>
@@ -95,7 +112,7 @@ namespace TaskManager.ViewModel
                     TaskIsDone = true,
                     RepeatTask = true,
                     DeadLine = "20.07.2021",
-                    DateOfCreation = DateTime.Now.ToString(CultureInfo.InvariantCulture)
+                    DateOfCreation = DateTime.Now.ToString(CultureInfo.CurrentCulture)
                 },
                 new Model.Task()
                 {
@@ -104,7 +121,7 @@ namespace TaskManager.ViewModel
                     TaskIsDone = false,
                     RepeatTask = true,
                     DeadLine = "20.07.2021",
-                    DateOfCreation = DateTime.Now.ToString(CultureInfo.InvariantCulture)
+                    DateOfCreation = DateTime.Now.ToString()
                 },
                 new Model.Task()
                 {
@@ -113,7 +130,7 @@ namespace TaskManager.ViewModel
                     TaskIsDone = true,
                     RepeatTask = false,
                     DeadLine = "20.07.2021",
-                    DateOfCreation = DateTime.Now.ToString(CultureInfo.InvariantCulture)
+                    DateOfCreation = DateTime.Now.ToString()
                 }
 
             };

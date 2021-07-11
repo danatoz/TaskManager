@@ -17,3 +17,4 @@ C:\Users\Dante\Documents\TaskManager\ToDoWPFTesting\obj\Debug\netcoreapp3.1\ToDo
 C:\Users\Dante\Documents\TaskManager\ToDoWPFTesting\obj\Debug\netcoreapp3.1\ToDoWPFTesting.pdb
 C:\Users\Dante\Documents\TaskManager\ToDoWPFTesting\obj\Debug\netcoreapp3.1\ToDoWPFTesting.genruntimeconfig.cache
 C:\Users\Dante\Documents\TaskManager\ToDoWPFTesting\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+C:\Users\Dante\Documents\TaskManager\ToDoWPFTesting\obj\Debug\netcoreapp3.1\ToDoWPFTesting.csproj.AssemblyReference.cache

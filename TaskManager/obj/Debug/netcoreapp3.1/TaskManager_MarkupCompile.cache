@@ -1,5 +1,5 @@
 ﻿TaskManager
-1.0.0.0
+
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\Dante\Documents\TaskManager\TaskManager\App.xaml
 1-487866684
 
-9231761381
+72022496398
 192-1533232326
 View\MainWindow.xaml;
 
-True
+False
 

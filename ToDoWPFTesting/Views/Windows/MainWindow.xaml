@@ -10,6 +10,8 @@
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
-
+        <StackPanel>
+            <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" Content="{Binding MyBoundMessage}" Margin="20"></CheckBox>
+        </StackPanel>
     </Grid>
 </Window>
