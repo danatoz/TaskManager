@@ -4,10 +4,6 @@ C:\Users\Dante\Documents\TaskManager\TaskManager\bin\Debug\netcoreapp3.1\TaskMan
 C:\Users\Dante\Documents\TaskManager\TaskManager\bin\Debug\netcoreapp3.1\TaskManager.runtimeconfig.dev.json
 C:\Users\Dante\Documents\TaskManager\TaskManager\bin\Debug\netcoreapp3.1\TaskManager.dll
 C:\Users\Dante\Documents\TaskManager\TaskManager\bin\Debug\netcoreapp3.1\TaskManager.pdb
-<<<<<<< HEAD
-=======
-C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.csproj.AssemblyReference.cache
->>>>>>> branchname
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\View\MainWindow.g.cs
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
@@ -21,3 +17,4 @@ C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskMan
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.dll
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.pdb
 C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.genruntimeconfig.cache
+C:\Users\Dante\Documents\TaskManager\TaskManager\obj\Debug\netcoreapp3.1\TaskManager.csproj.AssemblyReference.cache

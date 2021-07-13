@@ -6,12 +6,10 @@
         xmlns:local="clr-namespace:TaskManager" xmlns:model="clr-namespace:TaskManager.Model" xmlns:viewmodel="clr-namespace:TaskManager.ViewModel"
         mc:Ignorable="d"
         Title="Менеджер задач" Height="530" Width="620" Icon="/Resources/icon/icon_tasklist.png" >
-<<<<<<< HEAD:TaskManager/View/MainWindow.xaml
-=======
     <Window.DataContext>
         <viewmodel:MainWindowViewModel/>
     </Window.DataContext>
->>>>>>> branchname:TaskManager/MainWindow.xaml
+
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"></SolidColorBrush>
     </Window.Background>
@@ -26,11 +24,7 @@
                 <MenuItem Header="Файл">
                     <MenuItem Header="Сохранить"/>
                     <Separator />
-<<<<<<< HEAD:TaskManager/View/MainWindow.xaml
-                    <MenuItem x:Name="miExit" Header="Выход" Click="MiExit_Click"/>
-=======
                     <MenuItem Command="{Binding CloseApplicationCommand}" Header="Выход"/>
->>>>>>> branchname:TaskManager/MainWindow.xaml
                 </MenuItem>
                 <MenuItem Header="Правка"></MenuItem>
                 <MenuItem Header="О программе"></MenuItem>
@@ -44,7 +38,7 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0">
-                <Button Margin="20,20,20,0" HorizontalAlignment="Stretch">
+                <Button Command="{Binding MyDayTaskCommand}"  Margin="20,20,20,0" HorizontalAlignment="Stretch">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -144,11 +138,7 @@
                                         <ColumnDefinition></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="0">
-<<<<<<< HEAD:TaskManager/View/MainWindow.xaml
-                                        <CheckBox  CommandParameter="{Binding}" Margin="0,0,5,0" VerticalAlignment="Center"></CheckBox>
-=======
                                         <CheckBox IsChecked="{Binding TaskIsDone, Mode=TwoWay}" Margin="0,0,5,0" VerticalAlignment="Center"></CheckBox>
->>>>>>> branchname:TaskManager/MainWindow.xaml
                                         <TextBlock Text="{Binding Path=HeaderTask, Mode=TwoWay}"></TextBlock>
                                     </StackPanel>
                                     <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
@@ -175,17 +165,12 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0" >
+                        <StackPanel Grid.Row="0">
                             <StackPanel Orientation="Horizontal" DataContext="{Binding SelectedTask}">
                                 <TextBox Text="{Binding HeaderTask, UpdateSourceTrigger=PropertyChanged}"  MinWidth="260" Height="24" Margin="20,5,20,5"/>
                             </StackPanel>
-<<<<<<< HEAD:TaskManager/View/MainWindow.xaml
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <DatePicker FirstDayOfWeek="Monday" SelectedDateFormat="Short" Height="24" Margin="0,0,5,5"></DatePicker>
-=======
                             <StackPanel DataContext="{Binding SelectedTask}" Orientation="Horizontal" HorizontalAlignment="Center">
                                 <DatePicker Text="{Binding DateOfCreation,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FirstDayOfWeek="Monday" SelectedDateFormat="Short" Height="24" Margin="0,0,5,5"></DatePicker>
->>>>>>> branchname:TaskManager/MainWindow.xaml
                                 <Button Margin="5,0,0,5">
                                     <Button.BorderBrush>
                                         <SolidColorBrush Color="#FF707070" Opacity="0"/>
@@ -210,11 +195,7 @@
                                     <Image Source="/Resources/icon/icon_add.png" Height="32"/>
                                 </StackPanel>
                             </Button>
-<<<<<<< HEAD:TaskManager/View/MainWindow.xaml
-                            <Button x:Name="btnEditTask" Margin="20,0,20,5" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Arrow">
-=======
-                            <Button Command="{Binding DoneCommand}" Margin="20,0,20,5" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Arrow">
->>>>>>> branchname:TaskManager/MainWindow.xaml
+                            <Button Command="{Binding TransferTaskCommand}" Margin="20,0,20,5" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}">
                                 <Button.Resources>
                                     <Style TargetType="Border">
                                         <Setter Property="CornerRadius" Value="20"/>
@@ -235,7 +216,6 @@
                                 </StackPanel>
                             </Button>
                         </StackPanel>
-
                     </Grid>
                 </StackPanel>
             </Grid>

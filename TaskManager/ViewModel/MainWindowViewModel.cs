@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
+using TaskManager.Infrastructure;
 using TaskManager.Model;
 
 namespace TaskManager.ViewModel
@@ -62,11 +63,45 @@ namespace TaskManager.ViewModel
             Application.Current.Shutdown();
         }
 
-        
+
 
         #endregion
 
+        #region TransferTaskCommand
 
+        private RelayCommand _transferTaskCommand;
+
+        public RelayCommand TransferTaskCommand
+        {
+            get
+            {
+                return _transferTaskCommand ??= new RelayCommand(obj =>
+                {
+                    if (SelectedTask.TaskIsDone)
+                    {
+                        
+                    }
+                });
+            }
+        }
+
+        #endregion
+
+        #region MyRegion
+        private RelayCommand _myDayTaskCommand;
+
+        public RelayCommand MyDayTaskCommand
+        {
+            get
+            {
+                return _myDayTaskCommand ??= new RelayCommand(obj =>
+                {
+
+                });
+            }
+        }
+
+        #endregion
         #endregion
 
 
@@ -98,7 +133,7 @@ namespace TaskManager.ViewModel
         {
             #region Commands
             CloseApplicationCommand = new RelayCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecuted);
-            
+
 
             #endregion
             TasksDone = new ObservableCollection<Model.Task>();
