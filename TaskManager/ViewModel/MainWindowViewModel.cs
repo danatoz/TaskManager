@@ -96,7 +96,11 @@ namespace TaskManager.ViewModel
             {
                 return _myDayTaskCommand ??= new RelayCommand(obj =>
                 {
-
+                    Tasks.Clear();
+                    foreach (var t in TasksMyDay)
+                    {
+                        Tasks.Insert(0, t);
+                    }
                 });
             }
         }
@@ -137,7 +141,27 @@ namespace TaskManager.ViewModel
 
             #endregion
             TasksDone = new ObservableCollection<Model.Task>();
-            TasksMyDay = new ObservableCollection<Model.Task>();
+            TasksMyDay = new ObservableCollection<Model.Task>()
+            {
+                new Model.Task()
+                {
+                    Id = 4,
+                    HeaderTask = "MyDayNow",
+                    TaskIsDone = true,
+                    RepeatTask = true,
+                    DeadLine = "20.07.2021",
+                    DateOfCreation = DateTime.Now.ToString(CultureInfo.CurrentCulture)
+                },
+                new Model.Task()
+                {
+                    Id = 4,
+                    HeaderTask = "Every day",
+                    TaskIsDone = true,
+                    RepeatTask = true,
+                    DeadLine = "20.07.2021",
+                    DateOfCreation = DateTime.Now.ToString(CultureInfo.CurrentCulture)
+                },
+            };
             Tasks = new ObservableCollection<Task>
             {
                 new Model.Task()

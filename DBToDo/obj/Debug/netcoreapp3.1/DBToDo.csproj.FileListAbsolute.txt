@@ -1,0 +1,17 @@
+C:\Users\Dante\Documents\TaskManager\DBToDo\bin\Debug\netcoreapp3.1\TaskManager.deps.json
+C:\Users\Dante\Documents\TaskManager\DBToDo\bin\Debug\netcoreapp3.1\TaskManager.runtimeconfig.json
+C:\Users\Dante\Documents\TaskManager\DBToDo\bin\Debug\netcoreapp3.1\TaskManager.runtimeconfig.dev.json
+C:\Users\Dante\Documents\TaskManager\DBToDo\bin\Debug\netcoreapp3.1\TaskManager.exe
+C:\Users\Dante\Documents\TaskManager\DBToDo\bin\Debug\netcoreapp3.1\DBToDo.deps.json
+C:\Users\Dante\Documents\TaskManager\DBToDo\bin\Debug\netcoreapp3.1\DBToDo.dll
+C:\Users\Dante\Documents\TaskManager\DBToDo\bin\Debug\netcoreapp3.1\DBToDo.pdb
+C:\Users\Dante\Documents\TaskManager\DBToDo\bin\Debug\netcoreapp3.1\TaskManager.dll
+C:\Users\Dante\Documents\TaskManager\DBToDo\bin\Debug\netcoreapp3.1\TaskManager.pdb
+C:\Users\Dante\Documents\TaskManager\DBToDo\obj\Debug\netcoreapp3.1\DBToDo.csproj.AssemblyReference.cache
+C:\Users\Dante\Documents\TaskManager\DBToDo\obj\Debug\netcoreapp3.1\DBToDo.AssemblyInfoInputs.cache
+C:\Users\Dante\Documents\TaskManager\DBToDo\obj\Debug\netcoreapp3.1\DBToDo.AssemblyInfo.cs
+C:\Users\Dante\Documents\TaskManager\DBToDo\obj\Debug\netcoreapp3.1\DBToDo.csproj.CoreCompileInputs.cache
+C:\Users\Dante\Documents\TaskManager\DBToDo\obj\Debug\netcoreapp3.1\DBToDo.csproj.CopyComplete
+C:\Users\Dante\Documents\TaskManager\DBToDo\obj\Debug\netcoreapp3.1\DBToDo.dll
+C:\Users\Dante\Documents\TaskManager\DBToDo\obj\Debug\netcoreapp3.1\DBToDo.pdb
+C:\Users\Dante\Documents\TaskManager\DBToDo\bin\Debug\netcoreapp3.1\Tasks.db
